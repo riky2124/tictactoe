@@ -41,6 +41,18 @@ table tr td:last-child{
     border-right: 0;
 }
 
+#suggest{
+    width: 300px;
+    height: auto;
+    text-align: center;
+    vertical-align: middle;
+    position: absolute;
+    left: 50%;
+    margin-left: -150px;
+    top: 450px;
+    font-family: "Comic Sans MS", cursive, sans-serif;
+    font-size: large;
+}
 .endgame{
     display: none;
     background-color: rgba(205, 133, 63, 0.8);

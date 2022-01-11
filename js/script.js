@@ -1,6 +1,7 @@
 var originBoard;
 var winner;
 var level;
+var isSuggest;
 var head = document.querySelector('#head');
 const huPlayer = 'O';
 const aiPlayer = 'X';
@@ -22,8 +23,17 @@ function startGame(){
     document.querySelector('.endgame').style.display = 'none';
 	document.querySelector('.pregame').style.display = 'block';
     originBoard = Array.from(Array(9).keys());
+	document.getElementById('suggest-check').removeAttribute('checked');
     winner = null;
 	//suggest();
+	document.getElementById('suggest-check').addEventListener('change', function(){
+		if(this.checked){
+			isSuggest = true;
+		}
+		else{
+			isSuggest = false;
+		}
+	});
     for(var cell = 0; cell < cells.length; cell++){
         cells[cell].innerText = '';
         cells[cell].style.removeProperty('background-color');
@@ -67,7 +77,7 @@ function turn(squareId, player){
     if(gameWon){
 		 gameOver(gameWon);
 	}
-	else if(player === aiPlayer){
+	else if(player === aiPlayer && isSuggest){
 		suggest();
 	}
 }
